@@ -1,4 +1,4 @@
-cd /home/mathieu/Dropbox/work/decode_captcha/cari \
-    && ./generate_all.sh \
-    && cd /home/mathieu/Dropbox/work/prout/out/production/prout \
-    && java captcha.knn.KnnClassifierTest /home/mathieu/Dropbox/work/decode_captcha/cari/knn_train.txt /home/mathieu/Dropbox/work/decode_captcha/cari/knn_test.txt $1 $2 true
+touch knn_train.txt
+touch knn_test.txt
+./generate_all.sh \
+    && java -cp ../captcha_classifier/out/production/captcha_classifier captcha.knn.KnnClassifierTest knn_train.txt knn_test.txt 1 31 true
