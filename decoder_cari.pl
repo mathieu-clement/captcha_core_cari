@@ -6,8 +6,7 @@ use warnings;
 use File::Basename;
 use Data::Dumper;
 
-my $cari_PATH='/home/mathieu/Dropbox/work/decode_captcha/cari';
-my $KNN_CLASSPATH='/home/mathieu/Dropbox/work/prout/out/production/prout';
+my $cari_PATH='/home/mathieu/git_repositories/captcha/captcha_core_cari';
 
 my $input_image=$ARGV[0];
 my $input_image_basename=basename $input_image;
@@ -45,7 +44,8 @@ foreach(@reading_order) {
     $in .= "\n";
 }
 
-my $out = `echo "$in" | java -cp $KNN_CLASSPATH captcha.knn.KnnClassifier 1 $cari_PATH/knn_train.txt $nb_features 2>/dev/null`;
+#my $out = `echo "$in" | java -cp $KNN_CLASSPATH captcha.knn.KnnClassifier 1 $cari_PATH/knn_train.txt $nb_features 2>/dev/null`;
+my $out = `echo "$in" | php $cari_PATH/captcha_cari_test.php`;
 print $out;
 print "\n";
 
