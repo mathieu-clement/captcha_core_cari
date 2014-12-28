@@ -1,4 +1,9 @@
 <?php
+/*
+Installation: apt-get install libfann-dev php5-dev
+              pecl install fann
+*/
+
 $train_file = (dirname(__FILE__) . "/knn_multiple.net");
 if (!is_file($train_file))
     die("The file knn_multiple.net has not been created! Please run simple_train.php to generate it");
